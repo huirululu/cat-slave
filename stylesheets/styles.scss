@@ -1,0 +1,589 @@
+@import "normalize";
+
+$main-color:#009fcc;
+
+%nostyle-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin r_t_w_i($url,$width,$height) {
+    width: $width;
+    height: $height;
+    background:  url($url) no-repeat;
+    background-size:  100% 100%;
+    text-indent: 110%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+html {
+    font-size: 16px;
+    font-family: sans-serif;
+    line-height: 1.4;
+    color: #555;
+}
+
+img {
+     max-width: 100%;
+}
+
+a {
+    color: #009ced;
+    text-decoration: none;
+    &:hover {
+        color: #a01212e8;
+        text-decoration: underline;
+    }
+}
+
+.container {
+    width: 1080px;
+    margin:  0 auto;
+}
+
+.top-menu {
+    background:$main-color;
+    height: 36px;
+
+    ul {
+        @extend %nostyle-list;
+        display: flex;/*把容器內的元素由左至右排列*/
+        justify-content: flex-end; /*將子元素靠右排列*/
+    }
+
+    a {
+        display: block;
+        width: 90px;
+        height: 36px;
+        line-height: 36px;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        transition-property: background,color;
+        transition-duration: .5s;
+
+        &:hover {
+            color: #7d4eb9;
+            background:mix(#009fcc,#000,95);
+        }
+    }
+
+    i {
+        margin-right: 5px;
+    }
+}
+
+h1.logo {
+    margin: 0;
+
+    a {
+        display: block;
+    }
+
+    img {
+        display: block;
+        width: 250px;
+        height: 62px;
+    }
+}
+
+.top-block {
+    height: 80px;
+    background: #cceeff;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 9px 0;
+    }
+}
+.search {
+    position: relative;
+}
+
+.search input {
+    width: 250px;
+    height: 28px;
+    border: #ddd 2px solid;
+    border-radius: 17px;
+    padding-left: 35px;
+
+}
+
+.search input:focus {
+    outline: none;
+    border-color: #009ced;
+    box-shadow: #009ced 0 0 22px;
+}
+
+.search i {
+    position: absolute;
+    top:10px;
+    left: 10px;
+}
+
+.main-menu {
+    height: 38px;
+    border-top: #ddd 1px solid;
+    border-bottom: #ddd 1px solid;
+    button {
+        display: none;
+    }
+    ul {
+        @extend %nostyle-list;
+        display: flex;/*把容器(ul)內的元素(li)由左至右排列*/
+    }
+
+    li {
+        flex:0 0 20%;
+        /* flex-grow: 1 */
+    }
+
+    a {
+        display: block;
+        height: 38px;
+        line-height: 38px;
+        color: #3d4143;
+        text-align: center;
+        text-decoration: none;
+        transition-property: background;
+        transition-duration: .5s;
+
+        &:hover {
+            color: #fff;
+            background: #ff9204;
+        }
+    }
+
+}
+
+.index-image {
+    height: 400px;
+    background: url(../images/index-image.jpg) center center no-repeat; /*../往上一層資料夾找大圖*/
+    background-size: cover; /*自動將圖片填滿這區塊*/
+    .container {
+        position: relative;
+        height: 100%;
+    }
+    // position: relative;
+
+    h2 {
+        font-size: 50px;
+        color: rgba(255, 255,255,0.8);
+        text-shadow: rgba(#fff, 0.8) 0 0 0,rgba( #000, 0.8);
+        position: absolute;/*使用絕對定位*/
+        margin: 0 0 0 150px;/*離中線150px位置*/
+        left: 50%;/*以中線定位推到50%位置*/
+        bottom: 80px;
+
+        span {
+            display: block;/*變成一個區塊造成斷行效果*/
+            position: relative;/*讓他變成可以推的物件*/
+            left: 2em;/*推動兩個字的距離*/
+        
+        }
+    }
+}
+
+.new-items {
+  padding: 40px 0;
+
+    ul {
+        @extend %nostyle-list;
+        display: flex;/*把容器(ul)內的元素(li)由左至右排列*/
+        justify-content:space-between;
+    }
+       
+    li {
+        flex: 0 0 340px;
+    }
+}
+
+.featured-item {
+    background: #eee;
+    padding: 40px 0;
+
+    h2{
+        color: #ff9204;
+        font-size: 2rem;
+        text-align: center;
+        margin:0 0 30px;
+    }
+
+    h3{
+        margin-top: 0;
+        font-size: 1.5rem;    
+    }
+
+    .user {
+        float:right;
+        margin-top: 30px;
+    
+        img{
+            display: inline-block; /*形成一個不換行的區塊*/
+            height: 80px;
+            width: 80px;
+            border-radius: 40px; /*當要成為圓形時可以寫成 border-radius: 50%; */
+            margin-left: 10px;
+            vertical-align:middle; /*圖片與文字垂直對齊*/
+           
+        }
+    }
+
+}
+
+.item-content {
+    display: flex;
+}
+
+.item-img {
+    flex: 0 0 360px;
+    margin-right: 30px;/*看到間距就要想到margin*/
+}
+
+.item-text {
+    flex-grow: 1; /*也能寫成 flex: 1*/
+}
+
+.news-and-principle {
+    padding: 40px 0;
+
+    .container {
+        display:flex; 
+    }
+}
+
+.news {
+    flex-grow:1px; /*等同於flex:1px*/
+    min-width: 0; /*因為內容設為white-space: nowrap不會換行，寬度會隨著內容變寬所以min-width: 0;*/
+
+    h2 {
+        margin: 0 0 20px;
+        @include r_t_w_i("../images/news-title@2x.png",120px ,36px)
+    }
+
+    ul {
+        @extend %nostyle-list;
+    }
+
+    li {
+        padding: 8px;
+        border-bottom: #ddd 1px dotted;
+    }
+
+    a {
+        display: block; /*變成一個元素區塊*/
+        white-space: nowrap;/*讓內容完全不會換行*/
+        overflow: hidden;/*超出範圍隱藏*/
+        text-overflow: ellipsis;
+    }
+
+    li:nth-child(even) {/*li裡的第偶數的元素背景改變顏色*/
+        background: #f5f5f5;
+    }
+}
+
+.principle {
+    flex: 0 0 280px;
+    margin-left: 30px; 
+    display: flex;
+    flex-direction:column-reverse;
+    color: #fff;
+
+    h2 {
+        height: 60px;
+        margin: 0;
+        padding: 20px;
+        background: #5f5527;
+        position: relative;
+
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background:#fff url(../images/cat-head-animate@2x.png)no-repeat;
+            background-size: 60px 300px;
+            border-radius: 50%;
+            vertical-align:middle;
+            animation-name: speak;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: steps(4);
+        }
+        img {
+            display: none;
+        }
+
+        &::after { /*製造假的元素*/
+        content: "";
+        display: block;
+        position: absolute; /*principle h2為定位的參照容器*/
+        border: transparent 8px solid;
+        border-top: $main-color 8px solid;
+        top: 0;
+        left: 40px;
+        /* border-top: #ff9204 8px solid;
+        border-right: transparent 8px solid;
+        border-bottom: transparent 8px solid;
+        border-left: transparent 8px solid; */   
+        }
+    }
+
+}
+
+.principle-content {
+    background: $main-color;
+    padding: 10px;
+    flex: 1;
+
+    li {
+        margin: 10px 0;
+        font-size: 18px;
+    }
+}
+
+
+.page-footer {
+    padding: 40px 0;
+    background: #3d4143;
+    color: #fff;
+    text-align: center;
+
+    ul{
+        @extend %nostyle-list;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    li {
+        flex:1;
+    } 
+    
+    .business-hours {
+        flex: 0 0 100%;
+        margin: 20px 0;
+    }
+}
+
+@keyframes speak {
+    0%{
+        background-position: 0 0;
+    }
+
+    50%{
+        background-position: 0 -240px;
+    }
+
+    100%{
+        background-position: 0 0;
+    }
+}
+
+@media screen and (max-width:1140px) { /*media screen 不會有任何的權重*/
+    .container {
+        width: 820px;
+    }
+    .index-image h2 {
+        left: auto;
+        margin: 0;
+        right: 2em;
+    }
+
+    .new-items li {
+        flex: 0 0 260px;
+    }
+
+    .page-footer li {
+        flex: 0 0 260px;
+    }
+}
+
+@media screen and (max-width:880px) {
+    .container {
+        width: 740px;
+    }
+
+    .new-items {
+        ul {
+            flex-direction: column;
+        }
+        
+        li {
+            display: flex;
+            flex-basis: auto;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        li > a {/*只有指定li下一的a子元素*/
+
+            flex: 0 0 200px;
+            margin-right:20px;
+            margin-bottom:20px; 
+        }
+
+        li > div {
+            flex: 1;
+        }
+
+        li h2 {
+            margin-top:0; 
+        }
+    }
+
+    .news-and-principle .container{
+        flex-direction: column;
+    }
+
+    .news {
+        margin-bottom: 30px;
+    }
+    .principle {
+        margin-left:0; 
+        flex-basis: auto;
+        flex-direction: column;
+        h2 {
+            background: transparent;
+            color: #555;
+            padding: 0;
+        }
+        h2::before {
+            border:$main-color 5px solid;
+        }
+        h2::after{
+            display: none;
+        }
+
+        ol {
+            list-style: none;
+        }
+        ol li {
+            position: relative;
+        }
+        ol li::before {
+            width: 20px;
+            height: 20px;
+            display: block;
+            border-radius: 50%;
+            background: #fff;
+            color: $main-color;
+            text-align: center;
+            line-height: 20px;
+            position: absolute;
+            top:2px;
+            left: -25px;
+
+        }
+        ol li:nth-child(1)::before {
+            content: "1";
+        }
+        ol li:nth-child(2)::before {
+            content: "2";
+        }
+        ol li:nth-child(3)::before {
+            content: "3";
+        }
+    }
+
+    .page-footer  {
+
+        ul {
+            flex-direction: column;
+        }
+
+        li {
+        flex-basis: auto;
+        margin-bottom: 5px;
+        }
+    }
+}
+
+@media screen and (max-width:767px) {
+    .container {
+        width: 90%;
+    }
+
+    .item-content {
+        flex-direction: column;
+    }
+
+    .item-img {
+        flex-basis: auto;
+        margin: 0 0 20px;
+        img {
+            display: block;
+            margin: 0 auto;
+
+        }
+    }
+    .featured-item h3{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:640px) {
+    .top-block {
+        height:auto;
+        .container{
+        flex-direction: column;
+        align-items: center;
+        }
+        .logo {
+            margin-bottom: 10px;
+        }
+    }
+
+    .main-menu {
+        position: relative;
+        .container {
+            width: 100%;
+        }
+        ul {
+            flex-direction: column;
+            position: absolute;
+            top:40px;
+            width: 100%;
+            background: rgba(#fff,0.9);
+            z-index: 5;
+        }
+        button{
+            display: block;
+            background: #fff;
+            border: none;
+            width: 100%;
+            height: 40px;
+
+            li {
+                margin-left: 5px;
+            }
+        }
+    }
+
+
+}
+
+@media screen and (max-width:580px) {
+
+    .index-image h2 {
+        font-size: 35px;
+    }
+    .new-items li{    
+            flex-direction: column;
+            align-items: center;
+    }
+   .new-items li h2 {
+        font-size: 20px;
+        text-align: center;
+        margin-top:10px; 
+    }
+
+    .news a {
+        white-space: normal;
+    }
+}
